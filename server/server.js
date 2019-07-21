@@ -3,15 +3,41 @@ const Router = require('koa-router');
 const serve = require('koa-static');
 const path = require('path');
 const fs = require('fs');
+const devServerSetup = require('../config/setup-dev-server');
+const { createBundleRenderer } = require('vue-server-renderer');
 const backendApp = new Koa();
 const frontendApp = new Koa();
 const backendRouter = new Router();
 const frontendRouter = new Router();
 
-const bundle = fs.readFileSync(path.resolve(__dirname, '../dist/server.js'), 'utf-8');
-const renderer = require('vue-server-renderer').createBundleRenderer(bundle, {
-  template: fs.readFileSync(path.resolve(__dirname, '../dist/index.ssr.html'), 'utf-8')
-});
+// const bundle = fs.readFileSync(path.resolve(__dirname, '../dist/server.bundle.js'), 'utf-8');
+// const renderer = require('vue-server-renderer').createBundleRenderer(bundle, {
+//   template: fs.readFileSync(path.resolve(__dirname, '../dist/index.ssr.html'), 'utf-8')
+// });
+const isProd = process.env.NODE_ENV === 'production';
+
+let renderer;
+const templatePath = path.resolve(__dirname, '../dist/index.ssr.html');
+
+if(isProd){
+  const serverBundle = require(path.resolve(__dirname, '../dist/vue-ssr-server-bundle.json'));
+  const clientManifest = require(path.resolve(__dirname, '../dist/vue-ssr-client-manifest.json'));
+  const template = fs.readFileSync(templatePath, 'utf-8');
+  renderer = createBundleRenderer(serverBundle, {
+    runInNewContext: false,
+    template: template,
+    clientManifest: clientManifest
+  });
+}else{
+  let promise = devServerSetup(backendApp,templatePath,(bundle, options)=>{
+    renderer = createBundleRenderer(bundle, options);
+  })
+  promise.then(res => {
+    console.log(res)
+  })
+}
+
+
 
 // 后端Server
 backendRouter.get('/index', (ctx, next) => {
@@ -22,7 +48,7 @@ backendRouter.get('/index', (ctx, next) => {
       ctx.status = 500;
       ctx.body = '服务器内部错误';
     } else {
-      console.log(html);
+      // console.log(html);
       ctx.status = 200;
       ctx.body = html;
     }
