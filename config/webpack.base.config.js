@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
     mode: 'development',
     resolve: {
-        extensions: ['.js', '.vue']
+        extensions: ['.js', '.vue', '.ts', '.tsx']
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -23,6 +23,14 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['vue-style-loader', 'css-loader', 'postcss-loader']
+            },
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                }
             },
             {
                 test: /\.(jpg|jpeg|png|gif|svg)$/,

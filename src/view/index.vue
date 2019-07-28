@@ -1,11 +1,13 @@
 <template>
- <div>12346</div>
+ <div>{{data}}</div>
 </template>
 
 <script>
 export default {
   data () {
-    return {}
+    return {
+      data:"index"
+    }
   },
   components: {}
 }

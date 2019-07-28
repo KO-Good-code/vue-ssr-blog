@@ -11,7 +11,9 @@ module.exports = merge(base, {
   target: 'node',
   devtool: '#source-map',
   entry: {
-    server: path.resolve(__dirname, '../src/entry-server.js')
+    server: [
+      path.resolve(__dirname, '../src/entry-server.ts'),
+    ]
   },
   externals: [nodeExternals()],
   output: {
