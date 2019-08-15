@@ -1,17 +1,31 @@
 <template>
- <div>{{msg}}</div>
+ <div id="app">
+   <router-view/>
+   <button @click="up">123</button>
+   <foo/>
+ </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
+import {Component, Provide, Vue} from 'vue-property-decorator'
+import foo from '@/components/foo.vue'
 
-@Component
+@Component({
+  components: {
+    foo
+  }
+})
 
 export default class App extends Vue {
   msg = 123
+  up(){
+    console.log(456)
+  }
 }
 </script>
 
-<style>
+<style lang="scss" src="./assets/scss/markdown">
+button{
+  width: 100px;
+}
 </style>

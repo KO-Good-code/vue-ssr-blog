@@ -6,11 +6,11 @@ const base = require('./webpack.base.config');
 
 module.exports = merge(base, {
   entry: {
-    client: path.resolve(__dirname, '../src/entry-client.js')
+    client: path.resolve(__dirname, '../src/entry-client.ts')
   },
 
   plugins: [
-    new VueSSRClientPlugin(),
+    new VueSSRClientPlugin(),   // 新增
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
       filename: 'index.html'

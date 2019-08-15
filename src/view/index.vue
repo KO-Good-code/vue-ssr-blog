@@ -1,17 +1,35 @@
 <template>
- <div>{{data}}</div>
+ <div class="index">
+   <vue-markdown class="add" :source="msg">{{msg}}</vue-markdown>
+   <button @click="up">{{data}}</button>
+ </div>
 </template>
 
 <script>
+import myMarkdown from '../markdown/index.md';
+import VueMarkdown from 'vue-markdown'
 export default {
   data () {
     return {
-      data:"index"
+      msg:myMarkdown,
+      data:12
     }
   },
-  components: {}
+  components: {
+    VueMarkdown
+  },
+  mounted(){
+    
+  },
+  methods:{
+    up(){
+      console.log(123)
+    }
+  }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+
 </style>

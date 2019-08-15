@@ -1,28 +1,39 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     mode: 'development',
     resolve: {
-        extensions: ['.js', '.vue', '.ts', '.tsx']
+        extensions: ['.js', '.vue', '.ts', '.tsx','.scss'],
+        alias: {
+            '@': path.resolve('src')
+          }
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
+        publicPath: '/',
         filename: '[name].bundle.js'
     },
     module: {
         rules: [
             {
                 test: /\.vue$/,
-                use: 'vue-loader'
+                use: 'vue-loader',
+                
+            },
+            {
+                test: /\.md$/,
+                loader: 'text-loader'
             },
             {
                 test: /\.js$/,
                 use: 'babel-loader'
             },
             {
-                test: /\.css$/,
-                use: ['vue-style-loader', 'css-loader', 'postcss-loader']
+                test: /\.scss$/,
+                use: ['vue-style-loader', 'css-loader', 'postcss-loader','sass-loader']
             },
             {
                 test: /\.tsx?$/,
@@ -44,6 +55,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new ExtractTextPlugin({
+            filename: 'common.[chunkhash].css'
+        })
     ]
 }
