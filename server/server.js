@@ -9,15 +9,27 @@ const frontendApp = new Koa();
 const backendRouter = new Router();
 const frontendRouter = new Router();
 
-const serverBundle = require(path.resolve(__dirname, '../dist/vue-ssr-server-bundle.json'));
-const clientManifest = require(path.resolve(__dirname, '../dist/vue-ssr-client-manifest.json'));
-const template = fs.readFileSync(path.resolve(__dirname, '../dist/index.ssr.html'), 'utf-8');
 
-const renderer = createBundleRenderer(serverBundle, {
-  runInNewContext: false,
-  template: template,
-  clientManifest: clientManifest
-});
+// const serverBundle = require(path.resolve(__dirname, '../dist/vue-ssr-server-bundle.json'));
+// const clientManifest = require(path.resolve(__dirname, '../dist/vue-ssr-client-manifest.json'));
+// const template = fs.readFileSync(path.resolve(__dirname, '../dist/index.ssr.html'), 'utf-8');
+
+// const renderer = createBundleRenderer(serverBundle, {
+//   runInNewContext: false,
+//   template: template,
+//   clientManifest: clientManifest
+// });
+const templatePath = path.resolve(__dirname, '../dist/index.ssr.html')
+
+let renderer;
+readyPromise = require('../config/setup-dev-server')(
+  backendApp,
+  templatePath,
+  (bundle, options) => {
+    renderer = createBundleRenderer(bundle, options)
+  }
+)
+
 
 // 后端Server
 backendApp.use(serve(path.resolve(__dirname, '../dist')));
@@ -41,7 +53,7 @@ backendApp
   .use(backendRouter.allowedMethods());
 
 backendApp.listen(3000, () => {
-  console.log('服务器端渲染地址： http://localhost:3000');
+  console.log(`server started at localhost:3000`)
 });
 
 // 前端Server
@@ -59,5 +71,5 @@ frontendApp
   .use(frontendRouter.allowedMethods());
 
 frontendApp.listen(3001, () => {
-  console.log('浏览器端渲染地址： http://localhost:3001');
+  console.log(`server started at localhost:3001`)
 });
