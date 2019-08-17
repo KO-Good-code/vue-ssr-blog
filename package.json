@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=production node server/server.js",
-    "dev": "node server/server.js",
+    "dev": "nodemon server/server.js",
     "build:client": "webpack --config config/webpack.client.config.js",
     "build:server": "webpack --config config/webpack.server.config.js"
   },

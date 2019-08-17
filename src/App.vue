@@ -1,7 +1,9 @@
 <template>
  <div id="app">
    <router-view/>
-   <button @click="up">123</button>
+   <button @click="up">123
+     
+   </button>
    <foo/>
  </div>
 </template>

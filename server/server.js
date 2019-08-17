@@ -26,15 +26,13 @@ readyPromise = require('../config/setup-dev-server')(
   backendApp,
   templatePath,
   (bundle, options) => {
+    // console.log(bundle)
     renderer = createBundleRenderer(bundle, options)
   }
 )
 
 
-// 后端Server
-backendApp.use(serve(path.resolve(__dirname, '../dist')));
-
-backendRouter.get('*', (ctx, next) => {
+function render(ctx, next) {
   console.log('ctx', ctx);
   console.log('url', ctx.url);
 
@@ -46,7 +44,20 @@ backendRouter.get('*', (ctx, next) => {
   ctx.status = 200;
   ctx.type = 'html';
   ctx.body = ssrStream;
+}
+
+
+// 后端Server
+backendApp.use(serve(path.resolve(__dirname, '../dist')));
+
+backendRouter.get('*', (ctx, next) => {
+  console.log('ctx', ctx);
+  console.log('url', ctx.url);
+
+  readyPromise.then(() => render(ctx, next))
 });
+
+
 
 backendApp
   .use(backendRouter.routes())
