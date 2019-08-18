@@ -94,7 +94,7 @@ module.exports = function setupDevServer (app, templatePath, cb) {
       }
       
   }
-  app.use(hotMiddleware(clientCompiler))
+  app.use(hotMiddleware(clientCompiler,{ heartbeat: 5000 }))
 
   // watch and update server renderer
   const serverCompiler = webpack(serverConfig)
