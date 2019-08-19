@@ -50,6 +50,7 @@ backendApp.use(serve(path.resolve(__dirname, '../dist')));
 
 backendRouter.get('*', (ctx, next) => {
   console.log('url', ctx.url);
+  console.log(ctx.status);
   if(ctx.status == 404) ctx.throw(404);
   readyPromise.then(() => render(ctx, next))
 });
@@ -69,6 +70,7 @@ frontendApp.use(serve(path.resolve(__dirname, '../dist')));
 
 frontendRouter.get('/index', (ctx, next) => {
   let html = fs.readFileSync(path.resolve(__dirname, '../dist/index.html'), 'utf-8');
+  if(ctx.status == 404) ctx.throw(404);
   ctx.type = 'html';
   ctx.status = 200;
   ctx.body = html;
