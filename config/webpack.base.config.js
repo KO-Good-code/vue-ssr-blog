@@ -55,8 +55,8 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new ExtractTextPlugin({
-            filename: 'common.[chunkhash].css'
-        })
+        // new ExtractTextPlugin({
+        //     filename: 'common.[chunkhash].css'
+        // })
     ]
 }

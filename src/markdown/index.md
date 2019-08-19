@@ -1,12 +1,28 @@
-## 物理CPU个数
-~~这是加删除线的文字~~
->>这是引用的内容
-
-```js
-  代码...
-  代码...
-  代码...
+# nodejs读写xlsx
+首先安装必备模块`xlsx`
+```cmd
+npm i --save -dev xlsx
 ```
-
-*****
-![blockchain](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&fm=27&gp=0.jpg "区块链")
+读取文件：
+```js
+let XLSX = require("xlsx");
+let fs = require("fs")
+let buf = fs.readFileSync(path)//path是文件路径
+let ws = XLSX.read(buf,{type:"buffer"}) //ws是xlsx文件对象
+```
+返回Excel sheetName数组：
+```js
+let SheetArr = ws.SheetNames
+//SheetName：['one','two']
+```
+返回单个表：
+```js
+ws.Sheets[sheet_name]
+let Sheet = ws.Sheets[ws.SheetName[0]]//这是输出第一个表
+```
+将表格转化为Json：
+```js
+let Sheet = ws.Sheets[ws.SheetName[0]]//获取第一个表
+let row = XLSX.utils.sheet_to_json(Sheet)//将表内容转为Json
+```
+[官方链接](https://github.com/sheetjs/js-xlsx)

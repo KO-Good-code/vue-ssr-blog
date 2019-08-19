@@ -1,5 +1,5 @@
 <template>
- <div @click="up">{{msg}}</div>
+ <div @click="up">{{msgs}}</div>
 </template>
 
 <script lang="ts">

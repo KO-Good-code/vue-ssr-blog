@@ -1,13 +1,13 @@
 <template>
  <div class="index">
-   <vue-markdown class="add" :source="msg">{{msg}}</vue-markdown>
-   <button @click="up">{{data}}</button>
+   <vue-markdown class="add" :source="msg" />
  </div>
 </template>
 
 <script>
-import myMarkdown from '../markdown/index.md';
+import myMarkdown from '../markdown/index.md'
 import VueMarkdown from 'vue-markdown'
+
 export default {
   data () {
     return {

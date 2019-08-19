@@ -1,20 +1,19 @@
 <template>
- <div id="app">
-   <router-view/>
-   <button @click="up">1235
-     
-   </button>
-   <foo/>
- </div>
+  <div id="app">
+    <heads />
+   
+    <router-view/>
+   
+  </div>
 </template>
 
 <script lang="ts">
 import {Component, Provide, Vue} from 'vue-property-decorator'
-import foo from '@/components/foo.vue'
+import heads from '@/components/header.vue'
 
 @Component({
   components: {
-    foo
+    heads
   }
 })
 
