@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <history-list/>
+    about
   </div>
  
 </template>
@@ -15,7 +15,7 @@ import historyList from '@/components/historyList.vue'
   }
 })
 
-export default class Index extends Vue {
+export default class about extends Vue {
   
 }
 </script>
@@ -26,6 +26,4 @@ export default class Index extends Vue {
   margin: 0 auto;
   border-radius: 4px;
 }
-
-
 </style>

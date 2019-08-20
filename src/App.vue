@@ -29,7 +29,7 @@ export default class App extends Vue {
 body{
   background-color: #f6f6f6;
   background: url('./assets/images/bg.jpg') no-repeat center fixed;
-  background-size: center;
+  background-size: cover;
   background-attachment: fixed;
 }
 </style>

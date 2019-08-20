@@ -1,6 +1,6 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');//压缩css插件
 
 module.exports = {
     mode: 'development',
@@ -19,8 +19,7 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                use: 'vue-loader',
-                
+                use: 'vue-loader'
             },
             {
                 test: /\.md$/,
@@ -32,7 +31,8 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ['vue-style-loader', 'css-loader', 'postcss-loader','sass-loader']
+                use: ['vue-style-loader', 'css-loader', 'postcss-loader','sass-loader'],
+                // use:[miniCssExtractPlugin.loader, 'css-loader', 'postcss-loader','sass-loader']
             },
             {
                 test: /\.tsx?$/,
@@ -47,7 +47,8 @@ module.exports = {
                 use: {
                     loader: 'url-loader',
                     options: {
-                        limit: 10000    // 10Kb
+                        limit: 10000,    // 10Kb
+                        name: `images/[hash:8].[name].[ext]`
                     }
                 }
             }
@@ -55,6 +56,7 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
+        new OptimizeCssAssetsPlugin()
         // new ExtractTextPlugin({
         //     filename: 'common.[chunkhash].css'
         // })

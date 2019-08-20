@@ -13,6 +13,9 @@ export default {
       msg:myMarkdown,
     }
   },
+  asyncData(){
+    
+  },
   components: {
     VueMarkdown
   },

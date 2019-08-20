@@ -15,7 +15,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#">首页</a></li>
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>首页</a></li>
         <li><a href="#">文档</a></li>
         <li><a href="#">时间线</a></li>
         <li><a href="#">关于</a></li>
@@ -41,9 +41,15 @@ export default class heads extends Vue {
 <style lang="scss" scoped>
 .navbar-default{
   background-color:transparent;
+  border: none;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
   .nav{
     font-weight: bolder;
     color: #000;
+    .active>a{
+      background-color: transparent;
+      color: #000;
+    }
   }
 }
 </style>
