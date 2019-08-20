@@ -9,12 +9,10 @@
 <script lang="ts">
 import {Component, Provide, Vue} from 'vue-property-decorator'
 import heads from '@/components/header.vue'
-import banner from '@/components/banner.vue'
 
 @Component({
   components: {
     heads,
-    banner
   }
 })
 
@@ -30,5 +28,8 @@ export default class App extends Vue {
 @import url("./assets/scss/markdown");
 body{
   background-color: #f6f6f6;
+  background: url('./assets/images/bg.jpg') no-repeat center fixed;
+  background-size: center;
+  background-attachment: fixed;
 }
 </style>

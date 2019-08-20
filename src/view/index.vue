@@ -1,9 +1,7 @@
 <template>
-<div class="jumbotron">
   <div class="container">
     <history-list/>
   </div>
-</div>
  
 </template>
 
@@ -28,9 +26,7 @@ export default class Index extends Vue {
   margin: 0 auto;
 }
 .jumbotron{
-  background: url('../assets/images/2.jpg') no-repeat center fixed;
-  background-size: cover;
-  background-attachment: fixed;
+  
 }
 
 </style>
