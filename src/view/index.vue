@@ -1,35 +1,36 @@
 <template>
- <div class="index">
-   <vue-markdown class="add" :source="msg" />
- </div>
+<div class="jumbotron">
+  <div class="container">
+    <history-list/>
+  </div>
+</div>
+ 
 </template>
 
-<script>
-import myMarkdown from '../markdown/index.md'
-import VueMarkdown from 'vue-markdown'
+<script lang="ts">
+import {Component, Provide, Vue} from 'vue-property-decorator'
+import historyList from '@/components/historyList.vue'
 
-export default {
-  data () {
-    return {
-      msg:myMarkdown,
-      data:12
-    }
-  },
-  components: {
-    VueMarkdown
-  },
-  mounted(){
-    
-  },
-  methods:{
-    up(){
-      console.log(123)
-    }
+@Component({
+  components:{
+    historyList
   }
+})
+
+export default class Index extends Vue {
+  
 }
 </script>
 
 <style lang="scss" scoped>
-
+.container{
+  background-color: #FFF;
+  margin: 0 auto;
+}
+.jumbotron{
+  background: url('../assets/images/2.jpg') no-repeat center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 </style>
