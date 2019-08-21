@@ -1,5 +1,7 @@
 <template>
- <div @click="up">{{data}}</div>
+ <div class="historyCord">
+
+ </div>
 </template>
 
 <script lang="ts">
@@ -20,5 +22,13 @@ export default class historyCord extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.historyCord{
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  &:hover{
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+  }
+}
 </style>

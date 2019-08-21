@@ -6,8 +6,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node server/server.js",
     "dev": "nodemon server/server.js",
-    "build:client": "webpack --config config/webpack.client.config.js",
-    "build:server": "webpack --config config/webpack.server.config.js",
+    "build:client": "webpack --config --optimize-minimize config/webpack.client.config.js",
+    "build:server": "webpack --config --optimize-minimize config/webpack.server.config.js",
     "build": "webpack  --mode=production --config config/webpack.server.config.js --config config/webpack.client.config.js"
   },
   "dependencies": {
@@ -40,12 +40,12 @@
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.1",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss": "^7.0.17",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
+    "uglifyjs-webpack-plugin": "^1.0.0-rc.0",
     "url-loader": "^2.1.0",
     "vue-loader": "^15.7.1",
     "vue-style-loader": "^4.1.2",
@@ -58,7 +58,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "browserslist": [
-    "last 100 version",
+    "last 10 version",
     "> 1%",
     "maintained node versions",
     "not dead"

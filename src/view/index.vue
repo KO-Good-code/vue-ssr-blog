@@ -1,6 +1,9 @@
 <template>
-  <div class="container">
-    <history-list/>
+  <div class="container center w100">
+    <div class="left">
+      <history-list/>
+    </div>
+    <div class="right"></div>
   </div>
  
 </template>
@@ -22,9 +25,15 @@ export default class Index extends Vue {
 
 <style lang="scss" scoped>
 .container{
-  background-color: #FFF;
-  margin: 0 auto;
-  border-radius: 4px;
+  .left{
+    flex: 1;
+  }
+  
+}
+@media (max-width: 768px) {
+  .container{
+    width: 100%;
+  }
 }
 
 

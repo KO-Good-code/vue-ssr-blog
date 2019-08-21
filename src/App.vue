@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <heads />
-    
-    <router-view/>
+    <main class="center">
+      <h1 :class="{load:flag}"><i>学而不思则罔，思而不学则怠</i></h1>
+      <router-view/>
+    </main>
   </div>
 </template>
 
@@ -17,19 +19,18 @@ import heads from '@/components/header.vue'
 })
 
 export default class App extends Vue {
-  msg = 123
+  flag:boolean = false
+
+  mounted() {
+    this.flag = true
+  }
+
   up(){
     console.log(456)
   }
 }
 </script>
 
-<style lang="scss">
-@import url("./assets/scss/markdown");
-body{
-  background-color: #f6f6f6;
-  background: url('./assets/images/bg.jpg') no-repeat center fixed;
-  background-size: cover;
-  background-attachment: fixed;
-}
+<style lang="scss" src="./assets/scss/markdown">
+
 </style>

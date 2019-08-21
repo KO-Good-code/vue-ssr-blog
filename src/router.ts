@@ -10,8 +10,26 @@ export const createRouter = () => {
     return new Router({
         mode: "history",
         routes: [
-            { path: '/index', component: index },
-            { path: '/about', component: about },
+            { 
+                path: '/index',
+                name: 'index',
+                component: index 
+            },
+            { 
+                path: '/about',
+                name: 'about', 
+                component: about 
+            },
+            { 
+                path: '/time',
+                name: 'timeLine', 
+                component: about 
+            },
+            { 
+                path: '/file',
+                name: 'file', 
+                component: about 
+            },
         ]
     })
 }

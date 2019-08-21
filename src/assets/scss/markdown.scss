@@ -1,4 +1,50 @@
 @import './app.scss';
-.index{
-  
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a{
+  color:#000;
+  &:hover{
+    text-decoration: none;
+  }
+}
+.w100{
+  width: 100%;
+}
+body{
+  background: url('../images/bak.svg') center;
+  background-size: cover;
+  font-family: "italic", Helvetica, Arial, "Heiti SC", "Microsoft YaHei";
+  font-size:16px;
+  color:#666666;
+  main{
+    flex-direction: column;
+    padding: 0 20%;
+    h1{
+      text-align: center;
+      color: #000;
+      position: relative;
+      opacity: 0;
+      left: -100px;
+      transition: all .8s linear;
+      &.load{
+        left: 0;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  body{
+    main{
+      padding: 0 20px;
+      h1{
+        font-size: 20px;
+        font-family: "italic";
+      }
+    }
+  }
 }
