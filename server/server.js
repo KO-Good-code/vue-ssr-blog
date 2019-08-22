@@ -33,7 +33,6 @@ readyPromise = require('../config/setup-dev-server')(
 
 
 function render(ctx, next) {
-  console.log('url', ctx.url);
   let context = {
     url: ctx.url
   };
@@ -41,7 +40,8 @@ function render(ctx, next) {
   ctx.status = 200;
   ctx.type = 'html';
   ctx.body = ssrStream;
-  
+  console.log('url', ctx.url);
+  console.log(ctx.status);
 }
 
 
@@ -49,8 +49,6 @@ function render(ctx, next) {
 backendApp.use(serve(path.resolve(__dirname, '../dist')));
 
 backendRouter.get('*', (ctx, next) => {
-  console.log('url', ctx.url);
-  console.log(ctx.status);
   if(ctx.status == 404) ctx.throw(404);
   readyPromise.then(() => render(ctx, next))
 });

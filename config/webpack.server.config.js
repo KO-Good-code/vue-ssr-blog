@@ -9,7 +9,7 @@ module.exports = merge(base, {
   target: 'node',
   devtool: '#source-map',
   entry: {
-    server: path.resolve(__dirname, '../src/entry-server.ts')
+    server: path.resolve(__dirname, '../src/entry-server.js')
   },
   externals: [nodeExternals()],     // 新增
   output: {

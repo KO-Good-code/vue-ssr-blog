@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(base, {
   entry: {
-    client: path.resolve(__dirname, '../src/entry-client.ts')
+    client: path.resolve(__dirname, '../src/entry-client.js')
   },
 
   plugins: [

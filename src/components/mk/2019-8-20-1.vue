@@ -13,8 +13,9 @@ export default {
       msg:myMarkdown,
     }
   },
-  asyncData(){
-    
+  asyncData( { store } ) {
+    console.log(store)
+    return store.dispatch('fetchBar');
   },
   components: {
     VueMarkdown

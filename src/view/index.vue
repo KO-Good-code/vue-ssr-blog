@@ -3,7 +3,7 @@
     <div class="left">
       <history-list/>
     </div>
-    <div class="right"></div>
+    <div class="right">{{bar}}</div>
   </div>
  
 </template>
@@ -11,6 +11,7 @@
 <script lang="ts">
 import {Component, Provide, Vue} from 'vue-property-decorator'
 import historyList from '@/components/historyList.vue'
+import { State, Action, Mutation, Getter, namespace } from 'vuex-class'
 
 @Component({
   components:{
@@ -19,6 +20,12 @@ import historyList from '@/components/historyList.vue'
 })
 
 export default class Index extends Vue {
+
+  static asyncData( { store } : any ) {
+    return store.dispatch('fetchBar')
+  }
+
+  @State('bar') bar:any
   
 }
 </script>
