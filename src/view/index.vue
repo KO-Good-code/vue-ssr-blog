@@ -1,15 +1,17 @@
 <template>
   <div class="container center w100">
     <div class="left">
-      <history-list/>
+      
     </div>
-    <div class="right">{{bar}}</div>
+    <div class="right">
+      <history-list :data="homeList" />
+    </div>
   </div>
  
 </template>
 
 <script lang="ts">
-import {Component, Provide, Vue} from 'vue-property-decorator'
+import {Component, Provide, Vue, Model} from 'vue-property-decorator'
 import historyList from '@/components/historyList.vue'
 import { State, Action, Mutation, Getter, namespace } from 'vuex-class'
 
@@ -22,10 +24,10 @@ import { State, Action, Mutation, Getter, namespace } from 'vuex-class'
 export default class Index extends Vue {
 
   static asyncData( { store } : any ) {
-    return store.dispatch('fetchBar')
+    return store.dispatch('isHomeList')
   }
 
-  @State('bar') bar:any
+  @State('homeList') homeList: any
   
 }
 </script>
@@ -34,6 +36,9 @@ export default class Index extends Vue {
 .container{
   .left{
     flex: 1;
+  }
+  .right{
+    flex:3;
   }
   
 }

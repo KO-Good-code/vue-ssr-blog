@@ -23,10 +23,6 @@ module.exports = {
                 use: 'vue-loader'
             },
             {
-                test: /\.md$/,
-                loader: 'text-loader'
-            },
-            {
                 test: /\.js$/,
                 use: 'babel-loader'
             },

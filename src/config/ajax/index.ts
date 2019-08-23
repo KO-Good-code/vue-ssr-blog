@@ -12,10 +12,14 @@ axios.interceptors.response.use(response =>
   console.log(error)
 });
 
-const ajaxFn = ( arr:object[] ) : object => {
-  let result : object = {}
-  arr.map( res => {
-    result[res.name] = (params) => axios[res.type](res.url,params)
+const ajaxFn = ( arr:object[] ) : any => {
+  let result:any = {}
+  arr.map( (res: any) => {
+    switch (res.type) {
+      case "get":
+        result[res.name] = (params:object) =>axios.get(res.url,{params})
+        break
+    }
   })
   return result
 }
