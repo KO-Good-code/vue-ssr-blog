@@ -1,5 +1,9 @@
 {
     "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["*", "src/*"]
+      },
       // 与 Vue 的浏览器支持保持一致
       "target": "es5",
       // 这可以对 `this` 上的数据属性进行更严格的推断
@@ -9,7 +13,8 @@
       "module": "es2015",
       "moduleResolution": "node",
       "experimentalDecorators": true,
-      "noImplicitAny": false
+      "noImplicitAny": false,
+      "allowSyntheticDefaultImports": true,
     },
     "include": [
       "./src/*"

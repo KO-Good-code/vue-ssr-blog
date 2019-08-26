@@ -1,17 +1,20 @@
 <template>
  <div class="historyCord">
    <div class="post-time">
-     {{data.time}}
+     {{data.time | date}}
    </div>
    <div class="post-contant">
      {{data.title}}
+   </div>
+   <div class="post-tags">
+     {{data.tags}}
    </div>
  </div>
 </template>
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator'
-import http from '../config/api'
+
 
 @Component({
   filters: {

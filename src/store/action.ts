@@ -5,7 +5,8 @@ export default {
   isHomeList({ commit }: any ) {
     let params = {
       name:"title",
-      time:"time"
+      time:"time",
+      tags:"tags"
     }
     return http.home.getBlogList(params)
       .then((res:any) => {
