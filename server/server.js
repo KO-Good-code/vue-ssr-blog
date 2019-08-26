@@ -60,7 +60,7 @@ backendApp
   .use(backendRouter.allowedMethods());
 
 backendApp.listen(3000, () => {
-  console.log(`server started at localhost:3000`)
+  console.log(`server started at http://localhost:3000`)
 });
 
 // 前端Server
@@ -79,5 +79,5 @@ frontendApp
   .use(frontendRouter.allowedMethods());
 
 frontendApp.listen(3001, () => {
-  console.log(`server started at localhost:3001`)
+  console.log(`server started at http://localhost:3001`)
 });

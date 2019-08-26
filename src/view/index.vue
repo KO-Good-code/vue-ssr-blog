@@ -27,7 +27,7 @@ export default class Index extends Vue {
     return store.dispatch('isHomeList')
   }
 
-  @State('homeList') homeList: any
+  @State('homeList') homeList
   
 }
 </script>

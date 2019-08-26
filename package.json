@@ -59,7 +59,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "browserslist": [
-    "last 10 version",
+    "last 50 version",
     "> 1%",
     "maintained node versions",
     "not dead"

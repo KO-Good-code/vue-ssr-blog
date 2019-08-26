@@ -15,11 +15,7 @@ axios.interceptors.response.use(response =>
 const ajaxFn = ( arr:object[] ) : any => {
   let result:any = {}
   arr.map( (res: any) => {
-    switch (res.type) {
-      case "get":
-        result[res.name] = (params:object) =>axios.get(res.url,{params})
-        break
-    }
+    result[res.name] = (params:object) =>axios[res.type](res.url,{params})
   })
   return result
 }
