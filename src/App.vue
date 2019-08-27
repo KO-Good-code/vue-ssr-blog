@@ -2,7 +2,7 @@
   <div id="app">
     <heads />
     <main class="center">
-      <h1 :class="{load:flag}"><i>学而不思则罔，思而不学则怠</i></h1>
+      <p class="p" :class="{load:flag}"><i>学而不思则罔，思而不学则怠</i></p>
       <router-view/>
     </main>
   </div>

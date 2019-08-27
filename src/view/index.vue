@@ -35,9 +35,11 @@ export default class Index extends Vue {
 <style lang="scss" scoped>
 .container{
   .left{
+    max-width: 246px;
     flex: 1;
   }
   .right{
+    max-width: 784px;
     flex:3;
   }
   
