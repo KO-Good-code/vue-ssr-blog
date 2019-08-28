@@ -8,7 +8,7 @@
        <h3>{{data.title}}</h3>
      </router-link>
      <p class="post-tags">
-      <span class="a">{{data.tags}}</span>
+      <span class="a" v-for="(item,i) in data.tags" :key="i">{{item}}</span>
     </p>
    </div>
  </div>
@@ -63,6 +63,7 @@ export default class historyCord extends Vue {
         padding:2px 4px;
         font-size: 12px;
         transition: border-color 0.4s;
+        margin-right:5px;
         &:hover{
           border-color: #666;
         }
