@@ -22,7 +22,7 @@ export const createRouter = () => {
             },
             { 
                 path: '/time',
-                name: 'timeLine', 
+                name: 'time', 
                 component: about 
             },
             { 
