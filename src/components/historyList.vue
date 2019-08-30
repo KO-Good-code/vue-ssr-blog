@@ -1,8 +1,6 @@
 <template>
  <div class="historyList">
    <history-cord v-for="(item, i) in data" :key="i" :data="item"/>
-
-   
  </div>
 </template>
 

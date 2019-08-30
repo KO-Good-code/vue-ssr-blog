@@ -4,7 +4,7 @@
      {{data.time | date}}
    </div>
    <div class="post-info">
-     <router-link :to="{name:'index'}">
+     <router-link :to="{name:'post',params:{id:data.id}}">
        <h3>{{data.title}}</h3>
      </router-link>
      <p class="post-tags">
