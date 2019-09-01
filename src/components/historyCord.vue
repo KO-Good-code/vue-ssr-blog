@@ -11,7 +11,8 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator'
-import http from '../config/api'
+// import http from '../config/api'
+// import moment from 'moment'
 
 @Component({
   filters: {

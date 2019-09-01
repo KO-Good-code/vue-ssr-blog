@@ -2,12 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import { createRouter } from './router'
 import  {createStore }  from './store/store';
-// import http from './config/api'
+import http from './config/api'
 // import Vueaxios from 'vue-axios'
 
 // Vue.use(Vueaxios,http)
 
-// Vue.prototype.$http = http;
+Vue.prototype.$http = http;
 
 
 export const createApp = () => {
