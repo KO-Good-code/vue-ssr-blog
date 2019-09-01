@@ -1,23 +1,15 @@
 <template>
-  <div class="container center w100">
-    <div class="left">
-      
-    </div>
-    <div class="right">
-      <history-list :data="homeList" />
-    </div>
-  </div>
- 
+  <history-list :data="data" />
 </template>
 
 <script lang="ts">
 import {Component, Provide, Vue, Model} from 'vue-property-decorator'
 import historyList from '@/components/historyList.vue'
-import { State, Action, Mutation, Getter, namespace } from 'vuex-class'
+import { State } from 'vuex-class'
 
 @Component({
   components:{
-    historyList
+    historyList,
   }
 })
 
@@ -27,26 +19,24 @@ export default class Index extends Vue {
     return store.dispatch('isHomeList')
   }
 
+  data: object[] | null = null
+
   @State('homeList') homeList
+
+  created () {
+    if(this.homeList) {
+          this.data = this.homeList
+    }else{
+        let params = {
+          pageSize:1
+      }
+      this.$http.home.getBlogList(params)
+      .then(res => {
+          console.log(res.dta)
+          this.data = res.data
+      })
+    }
+  }
   
 }
 </script>
-
-<style lang="scss" scoped>
-.container{
-  .left{
-    flex: 1;
-  }
-  .right{
-    flex:3;
-  }
-  
-}
-@media (max-width: 768px) {
-  .container{
-    width: 100%;
-  }
-}
-
-
-</style>

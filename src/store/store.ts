@@ -5,7 +5,8 @@ import mutations from "./mutations"
 
 Vue.use(Vuex);
 const state = {
-  homeList:null
+  homeList:null,
+  post: null
 }
 
 export const createStore = () => {

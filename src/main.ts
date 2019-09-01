@@ -3,12 +3,14 @@ import App from './App.vue'
 import { createRouter } from './router'
 import  {createStore }  from './store/store';
 import http from './config/api'
-// import Vueaxios from 'vue-axios'
-
-// Vue.use(Vueaxios,http)
+import moment from 'moment'
 
 Vue.prototype.$http = http;
 
+Vue.filter(
+    "date",
+    (val: Date) => moment(val).format("YYYY-MM-DD")
+)
 
 export const createApp = () => {
     const router = createRouter()

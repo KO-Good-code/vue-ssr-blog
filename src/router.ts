@@ -3,6 +3,7 @@ import Router from "vue-router"
 
 import index from './view/index.vue'
 import about from './view/about.vue'
+import post from './view/post.vue'
 
 Vue.use(Router)
 
@@ -22,7 +23,7 @@ export const createRouter = () => {
             },
             { 
                 path: '/time',
-                name: 'timeLine', 
+                name: 'time', 
                 component: about 
             },
             { 
@@ -30,6 +31,11 @@ export const createRouter = () => {
                 name: 'file', 
                 component: about 
             },
+            {
+                path: '/post/:id',
+                name: 'post',
+                component: post
+            }
         ]
     })
 }

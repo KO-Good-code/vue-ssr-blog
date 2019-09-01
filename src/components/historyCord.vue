@@ -1,10 +1,15 @@
 <template>
- <div class="historyCord">
+ <div class="historyCord center">
    <div class="post-time">
-     {{data.time}}
+     {{data.time | date}}
    </div>
-   <div class="post-contant">
-     {{data.title}}
+   <div class="post-info">
+     <router-link :to="{name:'post',params:{id:data.id}}">
+       <h3>{{data.title}}</h3>
+     </router-link>
+     <p class="post-tags">
+      <span class="a" v-for="(item,i) in data.tags" :key="i">{{item}}</span>
+    </p>
    </div>
  </div>
 </template>
@@ -14,11 +19,8 @@ import {Component, Prop, Vue} from 'vue-property-decorator'
 // import http from '../config/api'
 // import moment from 'moment'
 
-@Component({
-  filters: {
-    format: (value: number) => (1)
-  }
-})
+
+@Component
 
 export default class historyCord extends Vue {
   @Prop(Object) data: object | any
@@ -35,12 +37,49 @@ export default class historyCord extends Vue {
 
 <style lang="scss" scoped>
 .historyCord{
-  background-color: #fff;
-  border: 1px solid #e1e1e1;
+  // background-color: #fff;
+  // border-bottom: 1px solid #e1e1e1;
+  margin-top:20px;
   border-radius: 4px;
-  transition: box-shadow .3s linear;
-  &:hover{
-    box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+  align-items: flex-start;
+  line-height: 24px;
+  .post-info{
+    flex:1;
+    h3{
+      cursor: pointer;
+      margin-top: 0;
+      margin-bottom: 5px;
+      color: #101010;
+      font-size: 18px;
+      font-weight: 300;
+      transition: color 0.4s;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      &:hover{
+        color: #4990E2;
+      }
+    }
+    .post-tags{
+      span{
+        border: 1px solid #e4e4e4;
+        background-color: #fff;
+        border-radius: 4px;
+        padding:2px 4px;
+        font-size: 12px;
+        transition: border-color 0.4s;
+        margin-right:5px;
+        &:hover{
+          border-color: #666;
+        }
+      }
+    }
+  }
+  .post-time{
+    // font-style: oblique;
+    color: #999999;
+    width: 125px;
+    font-weight: 300;
   }
 }
 </style>

@@ -6,6 +6,11 @@ const home = [
     name:"getBlogList",
     type: "get",
     url:`${baseUrl}/home`
+  },
+  {
+    name:"getBlogPost",
+    type: "get",
+    url:`${baseUrl}/post`
   }
 ]
 
