@@ -21,5 +21,12 @@ export default class historyList extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@media (min-width: 1000px) and (max-width: 1680px){
+  .historyList{
+    max-width:600px;
+    min-height: 576px;
+  }
+}
+
 </style>

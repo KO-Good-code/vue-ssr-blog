@@ -19,7 +19,7 @@ export default (context) => {
       
       Promise.all(matchedComponents.map(component => {
         if (component.asyncData) {
-          return component.asyncData({ store });
+          return component.asyncData({ store }, router.currentRoute);
         }
       })).then(() => {
         // 当使用 template 时，context.state 将作为 window.__INITIAL_STATE__ 状态，自动嵌入到最终的 HTML 中

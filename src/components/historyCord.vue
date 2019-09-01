@@ -53,9 +53,6 @@ export default class historyCord extends Vue {
       font-size: 18px;
       font-weight: 300;
       transition: color 0.4s;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
       &:hover{
         color: #4990E2;
       }

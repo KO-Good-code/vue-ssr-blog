@@ -2,9 +2,9 @@ import * as types from "./types"
 import http from "../config/api"
 
 export default {
-  isHomeList({ commit }: any ) {
+  isHomeList({ commit }: any, pageSize: number = 1 ) {
     let params = {
-      pageSize:1
+      pageSize:pageSize
     }
     return http.home.getBlogList(params)
       .then((res:any) => {
@@ -13,7 +13,7 @@ export default {
   },
   isPost({ commit }: any , post_id: number) {
     let params = {
-      post_id: 1
+      post_id: post_id
     }
     return http.home.getBlogPost(params)
       .then(res => {

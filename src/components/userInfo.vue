@@ -75,7 +75,7 @@ export default class userInfo extends Vue {
           color:#3a3a3a;
         }
       }
-      .router-link-exact-active{
+      .router-link-active{
         color:#3a3a3a;
       }
     }

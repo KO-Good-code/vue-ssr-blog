@@ -34,8 +34,10 @@ readyPromise = require('../config/setup-dev-server')(
 
 function render(ctx, next) {
   let context = {
-    url: ctx.url
+    url: ctx.url,
+    title: 'Sky个人博客'
   };
+  
   const ssrStream = renderer.renderToStream(context);
   ctx.status = 200;
   ctx.type = 'html';

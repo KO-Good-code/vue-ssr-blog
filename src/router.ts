@@ -22,6 +22,11 @@ export const createRouter = () => {
                 component: about 
             },
             { 
+                path: '/tags',
+                name: 'tags', 
+                component: about 
+            },
+            { 
                 path: '/time',
                 name: 'time', 
                 component: about 

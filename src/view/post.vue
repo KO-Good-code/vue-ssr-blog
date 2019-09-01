@@ -1,5 +1,5 @@
 <template>
-   <vue-markdown v-if="posts" class="add" :source="posts" />
+   <div class="posts"><vue-markdown v-if="post" class="add" :source="post.contant" /></div>
 </template>
 
 <script lang="ts">
@@ -16,24 +16,17 @@ import { State } from 'vuex-class'
 
 export default class post extends Vue {
 
-  static asyncData( { store } : any ) {
-    return store.dispatch('isPost')
+  static asyncData( { store } : any ,router) {
+    return store.dispatch('isPost',router.params.id)
   }
-  posts: any = null
-  created () {
-      if(this.post) {
-        this.posts = this.post.contant
-      }else{
-        let params = {
-          post_id: this.$route.params.id
-        }
-        this.$http.home.getBlogPost(params)
-        .then(res => {
-          console.log(res.dta)
-          this.posts = res.data.contant
-        })
-      }
-      
+  created() {
+    this.$store.dispatch('isPost',this.$route.params.id)
+  }
+
+  mounted() {
+    setTimeout(()=>{
+      (window as any).Prism.highlightAll()
+      },100)
   }
 
   @State('post') post
@@ -42,6 +35,17 @@ export default class post extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
-
+.posts{
+  line-height: 30px;
+  color: #666;
+  padding: 25px;
+  font-size: 14px;
+}
+</style>
+<style lang="scss">
+.posts{
+  p{
+    margin: 10px 0;
+  }
+}
 </style>
