@@ -52,7 +52,6 @@ export default class Index extends Vue {
 
 <style lang="scss" scoped>
 .index{
-  
   .but{
     justify-content: space-between;
     margin: 30px 0;
@@ -77,6 +76,21 @@ export default class Index extends Vue {
         &:hover{
           color: white;
           background-color: #666666;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .index{
+    .but{
+      li{
+        a{
+          line-height: 30px;
+          width: 120px;
+          height: 30px;
+          font-size: 14px;
         }
       }
     }

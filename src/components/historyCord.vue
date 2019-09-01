@@ -53,6 +53,7 @@ export default class historyCord extends Vue {
       font-size: 18px;
       font-weight: 300;
       transition: color 0.4s;
+      word-break: break-all;
       &:hover{
         color: #4990E2;
       }
@@ -77,6 +78,22 @@ export default class historyCord extends Vue {
     color: #999999;
     width: 125px;
     font-weight: 300;
+  }
+}
+
+@media (max-width: 768px) {
+  .historyCord{
+    flex-direction: column;
+    
+    .post-time{
+      font-style: oblique;
+      font-size: 11px;
+    }
+    .post-info{
+      h3{
+        font-size: 15px;
+      }
+    }
   }
 }
 </style>

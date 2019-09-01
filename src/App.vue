@@ -1,15 +1,16 @@
 <template>
   <div id="app">
     <!-- <heads /> -->
+    <div class="left center">
+      <user-info />
+    </div>
     <main class="center">
       <p class="p" :class="{load:flag}">
         <i>学而不思则罔，思而不学则怠</i>
       </p>
 
       <div class="container center w100">
-        <div class="left center">
-          <user-info />
-        </div>
+        
         <div class="right">
           <router-view />
         </div>
@@ -100,15 +101,15 @@ export default class App extends Vue {
 <style lang="scss" src="./assets/scss/markdown">
 </style>
 <style lang="scss" scoped>
+.left {
+  max-width: 246px;
+  margin-right: 20px;
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
 .container {
   align-items: flex-start;
-  .left {
-    max-width: 246px;
-    margin-right: 20px;
-    position: fixed;
-    top: 50px;
-    left: 50px;
-  }
   .right {
     width: 784px;
     padding: 0 35px;
@@ -138,22 +139,35 @@ footer {
   }
 }
 @media (max-width: 768px) {
+  .left {
+    position: relative;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+
+  }
   .container {
     width: 100%;
+    .right{
+      padding: 0 10px;
+      width: 100%;
+    }
   }
 }
 @media (min-width: 1680px) {
+.left {
+  left: 20%;
+}
   .container {
-    .left {
-      left: 20%;
-    }
+    
   }
 }
 @media (min-width: 1000px) and (max-width: 1680px) {
   .container {
-    .left {
-      left: 10%;
-    }
+    
+  }
+  .left {
+    left: 10%;
   }
 }
 </style>
