@@ -7,5 +7,8 @@ export default {
   },
   [types.Post]( state: object | any, data:string){
     state.post = data
+  },
+  [types.Tags]( state: object | any, data:string){
+    state.tags = data
   }
 }

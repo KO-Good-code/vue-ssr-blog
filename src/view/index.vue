@@ -32,7 +32,7 @@ export default class Index extends Vue {
   @State('homeList') homeList
 
   get route(){
-    return this.$route.query.pageId ? ~~this.$route.query.pageId+1 : 2
+    return this.$route.query.pageId ? +this.$route.query.pageId+1 : 2
   }
 
   created () {

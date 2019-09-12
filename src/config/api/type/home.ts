@@ -11,6 +11,11 @@ const home = [
     name:"getBlogPost",
     type: "get",
     url:`${baseUrl}/post`
+  },
+  {
+    name: "getTags",
+    type: "get",
+    url: `${baseUrl}/tags`
   }
 ]
 

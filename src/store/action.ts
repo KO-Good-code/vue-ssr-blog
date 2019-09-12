@@ -19,5 +19,12 @@ export default {
       .then(res => {
         commit(types.Post, res.data)
       })
+  },
+  isTags( { commit }:any) {
+    return http.home.getTags()
+      .then((res:any) => {
+        console.log(res)
+        commit(types.Tags, res.data)
+      })
   }
 }

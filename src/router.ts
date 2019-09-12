@@ -2,7 +2,7 @@ import Vue from "vue"
 import Router from "vue-router"
 
 import index from './view/index.vue'
-import about from './view/about.vue'
+import tags from './view/tags.vue'
 import post from './view/post.vue'
 
 Vue.use(Router)
@@ -17,24 +17,24 @@ export const createRouter = () => {
                 component: index 
             },
             { 
-                path: '/about',
+                path: '/tags',
                 name: 'about', 
-                component: about 
+                component: tags 
             },
             { 
                 path: '/tags',
                 name: 'tags', 
-                component: about 
+                component: tags 
             },
             { 
                 path: '/time',
                 name: 'time', 
-                component: about 
+                component: tags 
             },
             { 
                 path: '/file',
                 name: 'file', 
-                component: about 
+                component: tags 
             },
             {
                 path: '/post/:id',
