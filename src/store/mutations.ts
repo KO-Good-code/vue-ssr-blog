@@ -10,5 +10,11 @@ export default {
   },
   [types.Tags]( state: object | any, data:string){
     state.tags = data
+  },
+  [types.Archive]( state: object | any, data:string){
+    state.Archive = data
+  },
+  [types.userInfo]( state: object | any, data:string){
+    state.userInfo = data
   }
 }

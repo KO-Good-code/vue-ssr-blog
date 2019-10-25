@@ -1,23 +1,22 @@
 <template>
   <div class="tags">
     <p class="post-tags">
-      <span class="a" v-for="(item,i) in tags" :key="i">{{item}}</span>
+      <span class="a" v-for="(item,i) in tag" :key="i">{{item}}</span>
     </p>
-    <section>
-      
-    </section>
+    <!-- 列表 -->
+    <tag-content v-for="(value, key, i) in tags" :data="{key,value}" :key="i" />
   </div>
  
 </template>
 
 <script lang="ts">
 import {Component, Provide, Vue} from 'vue-property-decorator'
-import historyList from '@/components/historyList.vue'
+import tagContent from '@/components/tags/tagContent.vue'
 import { State } from 'vuex-class'
 
 @Component({
   components:{
-    historyList
+    tagContent
   }
 })
 
@@ -27,11 +26,22 @@ export default class tags extends Vue {
     return store.dispatch('isTags',route.query.pageId)
   }
 
-  @State('tags') tags
+  @State('tags') tags //标签
 
-  created () {
+  beforeCreate() {
     this.$store.dispatch('isTags')
   }
+  get tag(){
+    let result: string[] = []
+    if( this.tags !== null){
+      Object.keys(this.tags).forEach( res => {
+        result.push(res)
+      })
+    }
+    return result
+  }
+
+
 }
 </script>
 

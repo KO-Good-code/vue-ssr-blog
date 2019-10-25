@@ -5,7 +5,7 @@
         <img src="../assets/images/5.jpg" />
       </div>
       <div class="name center">
-        <i>sky blog</i>
+        <i>Negri blog</i>
       </div>
     </div>
     <nav class="nav center" :class="{active:active}">
@@ -14,7 +14,7 @@
         <span class="btn-bar"></span>
         <span class="btn-bar"></span>
       </button>
-      <ul class="nav-content center">
+      <ul class="nav-content center" @click="active = !active">
         <li>
           <router-link :to="{name:`index`}">
             <i class="iconfont icon-shouye1"></i>
@@ -28,7 +28,7 @@
           </router-link>
         </li>
         <li>
-          <router-link :to="{name:`file`}">
+          <router-link :to="{name:`archive`}">
             <i class="iconfont icon-guidang2"></i>
             <span>存档</span>
           </router-link>
@@ -39,12 +39,12 @@
             <span>关于</span>
           </router-link>
         </li>
-        <li>
+        <!-- <li>
           <router-link :to="{name:`time`}">
             <i class="iconfont icon-sousuo1"></i>
             <span>搜索</span>
           </router-link>
-        </li>
+        </li> -->
     </ul>
     </nav>
     
@@ -56,6 +56,10 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 export default class userInfo extends Vue {
 
   active: boolean = false
+
+  close(){
+
+  }
     
 }
 </script>
@@ -77,7 +81,6 @@ export default class userInfo extends Vue {
   .nav-content{
     flex-direction: column;
     font-size: 15px;
-    
     li{
       margin-top:20px;
       a{

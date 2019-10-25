@@ -12,6 +12,11 @@ Vue.filter(
     (val: Date) => moment(val).format("YYYY-MM-DD")
 )
 
+Vue.filter(
+    "getMonth",
+    (val: Date) => moment(val).format("MM-DD")
+)
+
 export const createApp = () => {
     const router = createRouter()
 

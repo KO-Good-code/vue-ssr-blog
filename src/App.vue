@@ -10,7 +10,6 @@
       </p>
 
       <div class="container center w100">
-        
         <div class="right">
           <router-view />
         </div>
@@ -67,8 +66,8 @@
           </a>
         </li>
       </ul>
-      <p>
-        
+      <p class="center">
+        蜀ICP备19002945号-1
       </p>
     </footer>
   </div>
@@ -113,10 +112,16 @@ export default class App extends Vue {
   .right {
     width: 784px;
     padding: 0 35px;
+    min-height: 750px;
   }
 }
 footer {
   margin-bottom: 60px;
+  flex-direction: column;
+  p{
+    line-height: 30px;
+    font-size: 14px;
+  }
   .list-inline{
     color: #444444;
     font-size: 20px;

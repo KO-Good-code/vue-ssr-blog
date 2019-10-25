@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server/server.js",
+    "start": "pm2 start server/server.js",
     "dev": "nodemon server/server.js",
     "build:client": "webpack --config --optimize-minimize config/webpack.client.config.js",
     "build:server": "webpack --config --optimize-minimize config/webpack.server.config.js",

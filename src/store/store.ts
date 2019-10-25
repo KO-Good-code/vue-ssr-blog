@@ -7,14 +7,16 @@ Vue.use(Vuex);
 const state = {
   homeList:null,
   post: null,
-  tags: null
+  tags: null,
+  Archive:null,
+  userInfo: null
 }
 
 export const createStore = () => {
   const store = new Vuex.Store({
     state,
     mutations,
-    actions
+    actions,
   });
 
   return store;

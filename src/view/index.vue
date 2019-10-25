@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="index" v-if="homeList">
     <history-list :data="homeList" />
     <ul class="but center">
       <li v-if="$route.query.pageId > 1" class="center previous">

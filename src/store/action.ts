@@ -23,8 +23,19 @@ export default {
   isTags( { commit }:any) {
     return http.home.getTags()
       .then((res:any) => {
-        console.log(res)
         commit(types.Tags, res.data)
+      })
+  },
+  isArchive( { commit }:any) {
+    return http.home.getArchive()
+      .then((res:any) => {
+        commit(types.Archive, res.data)
+      })
+  },
+  isUser( { commit }:any) {
+    return http.home.getUser()
+      .then((res:any) => {
+        commit(types.userInfo, res.data)
       })
   }
 }
